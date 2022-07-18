@@ -1,0 +1,44 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  background-image: url(Images/fondo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  font-family: Arial,Helvetica, sans-serif;
+}
+
+.tete{
+  width: 100%;
+  margin: 0px auto;
+  height: 63px;
+}
+
+header {
+  text-align: center;
+}
+
+.conditions {
+  width: 70%;
+  margin: 0px auto;
+  padding: .3rem;
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+.forecast {
+  margin: .5rem;
+  padding: .3rem;
+  font-size: 1.2rem;
+}
+
+.forecast > p,h2 {
+  margin: .2rem;
+  font-size: 1rem;
+}
+
+.footer {
+  font: 1rem 'Fira Sans', sans-serif;
+  font-size: 1.2rem;
+}
