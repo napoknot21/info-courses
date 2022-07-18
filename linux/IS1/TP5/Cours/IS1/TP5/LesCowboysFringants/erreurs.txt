@@ -1,0 +1,6 @@
+ls: impossible d'ouvrir le répertoire './8Secondes/LaReine/Bobo': Permission non accordée
+ls: impossible d'ouvrir le répertoire './8Secondes/LaReine/Monsieur': Permission non accordée
+ls: impossible d'ouvrir le répertoire './8Secondes/Octobre': Permission non accordée
+ls: impossible d'ouvrir le répertoire './ByeByeLou/EntreDeuxTaxis/LaCatherine': Permission non accordée
+ls: impossible d'ouvrir le répertoire './ByeByeLou/EntreDeuxTaxis/LaTeteHaute': Permission non accordée
+ls: impossible d'ouvrir le répertoire './HistoireDePeche/LaDévisse': Permission non accordée

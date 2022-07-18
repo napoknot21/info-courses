@@ -1,0 +1,166 @@
+TP6
+
+Charly Martin Avila 
+
+EXERCICE 1
+
+1. ps -gax | less
+
+2. 
+
+
+EXERCICE 2
+
+1. tr 'abcdefghijklmnopqrstuvwxyz' bcdefghijklmnopqrstuvwxyza'
+
+2. echo tr 'abcdefghijklmnopqrstuvwxyz' 'bcdefghijklmnopqrstuvwxyza' > chiffre
+
+3. echo tr 'bcdefghijklmnopqrstuvwxyza' 'abcdefghijklmnopqrstuvwxyz' > dechiffre 
+
+4. ./dechiffre
+   fzz (mot en entrée)
+   eyy (mot attendu)
+   
+5. 
+
+
+EXERCICE 3
+
+1.  yes "Repetez apres moi " Apres moi"" | head -n 1000 > grosfichier
+
+2.  head -n 7 grosfichier | cat -n | tail -n 1 | cat 
+
+3.  tr ' ' '\n' grosfichier s
+
+
+EXERCIC 4
+
+1. strace xeyes 2> ficher.txt
+   si on fait la comande cat avec le fichier texte, on vera que la l'affichage de trace a été redirigé vers ce dernier, alors il réalise ses affichages sur la sortie 2.
+
+2;  strace touch grosminet 2>&1 | wc -l 
+    38 appels
+
+3.  strace rm titi 2>&1 | wc -l
+    67 appels
+
+
+
+EXERCICE 5
+
+1. touch date
+   chmod u+x date
+
+2. date
+   la date
+
+3. strace date 2>&1 | head -n 1
+   /bin/date
+   
+4. type date
+   date est haché (/bin/date)
+
+
+EXERCICE 6
+
+1. elle affiche le text sur l terminal
+
+2. elle affiche tous les elements du repertoire.
+
+3. /bin/echo
+
+4.  "Bureau", "Cours", "Documents", "IP1", "IS1", "Images", "Mod\303\250les", "Musique", "Public", "T\303\251l\303\251chargements", "Vid\303\251os", "appels.txt", "chiffre", "date", "fichier.txt", "filtres.txt", "grosfichier", "grosminet", "ls", "nohup.out", "processus.txt"]
+	
+EXERCICE 7
+
+1. 
+
+2. "Bonjour $USER , vous etes actuellement dans le répertoire $PWD" 
+
+3.  HOME=/home/cmartinavila/Cours
+    on peut changer les valeurs de variables
+
+4. La varible $OLDPWD stocke le repertoir où on se trouvait avant
+
+
+EXERCICE 8
+
+1. echo $PATH
+
+2. emacs fic.sh 
+   [dans emacs] echo "ceci est le résultat de l'execution du fichier fic.sh
+   chmod u+x fic.sh
+
+3. TP6/fic.sh
+   ./fic.sh
+   fic.sh
+   le paths ne retrouve pas la reference de fic.sh
+
+4. PATH=$PATH:/home/cmartinavila/IS1/TP6
+
+5. 
+
+EXERCICE 9
+
+1. set -o posix
+
+2. set
+   env
+
+3. NOM="Charly"
+   set -o posix
+   set
+
+4. il n'apparaît pas, 
+
+5. echo "echo "Bonjour $NOM"" > hello.sh
+   ./hello.sh
+   NOM="tartempion
+   la variable NOM est 'local', c'est-a-dire, elle ne marche que dans le terminal courant
+   
+   
+6. export NOM"
+   ./hello.sh
+   
+7. une variable 
+
+
+Exercice 10
+
+1. mkdir -p Je/Vais/Tous/Les/Jours/Ici
+   cd Je
+   mkdir -p Consulte/Sans/Arret/Celui/La
+   
+EXERCICE 11
+   
+1. eecho "le chemin absolu de mon repertoire courant est $PWD"
+echo "le résultat de la commande whoami est $(whoami)"
+echo "le produit de 33 par 17 vaut $((33*17))"
+echo il a agit $anti{constitutionnellement,conventionnellement,socialement}
+   
+EXERCICE 12
+
+
+EXERCICE 13
+
+echo -e "\tA\tB"
+echo "L'ensemble {1, 2, 3} est inclus dans N."
+echo -e "Elle demanda d'une voix *forte*": \"\Qui est-ce ?\"
+echo '$HOME =' ${HOME}
+echo "19*216 =" $((19*216))
+echo "Ajoutez un peu d'huile de l'olive, d'humeur joyeuse, d'humus, et remuez bien !""
+
+
+EXERCICE 14
+
+TOTO=whoami
+echo "J'aime bien utiliser la commande" '"'$TOTO'"'.
+echo 'Ma variable $TOTO contient' "'"$TOTO"'"
+echo "mon login est $USER"
+echo "la commande d'aujourd'hui est" '\'$TOTO'\'
+TOTO=whoareyou
+echo $TOTO", c'est une commande imaginaire" '!'
+
+    
+
+

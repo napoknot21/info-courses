@@ -1,0 +1,254 @@
+	EXERCICE
+
+tP7 1
+
+2. sleep 200; xclock 
+   On été créeé un seul pocessus
+   On tue le processus sleep et la commande xclock commence à marcher
+
+3. sleep 200 && xclock 
+   on été créé un seul processus
+   On tue le processus sleep et aussi la commande xclock
+
+4. ─xfce4-terminal─┬─2*[bash]
+        │                ├─bash─┬─bash───sleep
+   Lorsqu'on tue le processus sleep, xclock commence à marcher et lorsqu'on tue ce dernier , sur le terminal s'affiche le message de sa termination de processus.
+
+
+5. Si on tue le processus père, le processus orphelin est adopté par le processus numero 1
+
+
+EXERCICE 2
+
+1. ls
+   echo $?
+   cela renvoie la valeur 0 
+   ls grominet
+   echo $?
+   2
+
+2. sleep 2
+   valeur de retour 0
+
+3. sleep 200
+   valeur de retour 130
+   sleep 200
+   kill -SIGINT 2686
+   kill -SIGCONT 2686
+
+
+EXERCICE 3
+
+1. sleep 5 || xclock , vu que la commande sleep s'execute sans problèmes, alors le shell n'éxecute que celle ci
+   Alors que sleep 5 && xclock execute d'abord sleep 5 et en suite execute xclock.
+
+2. Lorsqu'on interrompre la ligne de commande sleep 500 || xclock, elle s'arrete et elle ne renvoie rien. De même avec la ligne de commande sleep 500 && xclock
+
+EXERCICE 4
+
+1. touch meme pareil
+   echo "Hola" > meme
+   echo "Hola" > pareil
+   echo "toto" > different
+   diff -q meme pareil : cela n'affiche rien
+   diff -q pareil different: Les fichiers pareil et different sont différents
+
+2. lorsqu'on execute echo $?, cela nous renvoie 1 donc le message affiché correspond à la sortie 2 (sortie d'erreur)
+
+3. diff -q meme pareil &&  echo "Les deux fichier sont identiques"
+
+4. 
+
+5. diff -q meme different ||echo "Les deux fichier sont differents"
+
+6. (diff -q meme different  &&  echo "Les deux fichier sont identiques") ||echo "Les deux fichier sont differents"
+
+EXERCICE 5
+
+1. #!/bin/bash
+   echo "Salut, $1" '!'
+   
+2. #!/bin/bash
+   echo "Je dois saluer $# personnes :"
+   echo "Bonjour," "$@" '!'
+
+EXERCICE 6
+
+1. #!/bin/bash
+
+   if [[ $# -ge 1 ]]
+   then 
+	   echo "Je dois saluer $# personnes :"
+	   echo "Bonjour," "$@" '!'
+   else
+	   echo "If faut ecrire au moins un parametre"
+   fi
+   
+2. #!/bin/bash
+
+   if [[ $# -ge 1 ]]
+   then 
+	   echo "Je dois saluer $# personnes :"
+	   echo "Bonjour," "$@" '!'
+	   exit 0
+   else
+	   echo "If faut ecrire au moins un parametre"
+	   exit 42
+   fi
+   
+EXERCICE 7
+
+1. convert img.jpg -thumbnail 100 mini_log.jpg
+
+2. #!/bin/bash
+
+   convert $1 -thumbnail 100 mini_$1
+
+3. #!/bin/bash
+
+   if [[ $# == 1 ]]
+   	   then 
+   	   	   convert $1 -thumbnail 100 mini_$1
+   	   	   exit 0
+   	   else
+   	   	   echo "Vous ne devez imperativement entrer q'un seul parametre"
+   	   	   exit 1
+   fi
+
+
+4. #!/bin/bash
+
+   var=$(dirname "$1")
+
+   if [[ ! $# == 1 ]]
+	   then 
+		   echo "Vous ne devez imperativement entrer q'un seul parametre"
+		   exit 1
+   else 
+	   if [[ -e $1 ]] 
+		   then 
+			   convert $1 -thumbnail 100 mini_$1
+			   exit 0
+		   else
+	                  echo "le fichier n'est pas dans le répértoire courant"
+			   exit 2	
+	   fi
+   fi
+   
+5. #!/bin/bash
+
+   if [[ ! $# == 1 ]]
+	   then 
+		   echo "Vous ne devez imperativement entrer q'un seul parametre"
+		   exit 1
+   else
+           tmp=$(file $1 | grep "image")	
+	   if [[ ! -e $1 ]]
+		   then	
+			   echo "Le fichier n'exsite pas dans le repértoire courant"
+			   exit 2
+		   else
+			   if [[ !  $tmp ]]
+			          then
+					   echo "le fichier n'est pas une image"
+                                          exit 3	
+				   else 
+					   convert $1 -thumbnail 100 mini_$1
+					   exit 0
+			   fi	
+   	   fi
+   fi
+
+6. 
+#!/bin/bash
+
+if [[ ! $# == 1 ]]
+    then 
+	echo "Vous ne devez imperativement entrer q'un seul parametre"
+	exit 1
+else	
+    if [[ ! -e $1 ]]
+	then	
+	    echo "Le fichier n'exsite pas dans le repértoire courant"
+	    exit 2
+    else
+	tmp=$(file $1 | grep "image")
+	if [[ !  $tmp ]]
+	    then
+		    echo "le fichier n'est pas une image"
+		    exit 3	
+	else
+	    SER=$(ls | grep "Miniatures")
+	    if [[ ! $SER ]]
+		then
+		    mkdir Miniatures
+		    convert $1 -thumbnail 100 mini_$1
+		    mv mini_$1 Miniatures
+		    exit 0
+	    else
+		VAR=$(file Miniatures | grep "directory")
+		if [[  $VAR ]]
+		    then
+			convert $1 -thumbnail 100 mini_$1 ; mv mini_$1 ./Miniatures
+			exit 0
+		else
+		    echo "Un fichier nomé" '"'Miniatures'"' "existe déja"
+		    exit 4
+		fi
+	    fi
+	fi	
+    fi
+fi
+
+
+EXERCICE 8
+
+#!/bin/bash
+
+ echo "Je dois saluer $# personnes :"
+ for i in $@
+ do echo "Bonjour, $i" '!' 
+ done
+
+EXERCICE 9
+
+1. #!/bin/bash
+
+   for i in *
+   do echo $i
+   done
+   
+2. #!/bin/bash
+
+  for i in *
+  do echo $(file $i)
+  done
+
+3. #!/bin/bash
+
+   for i in *
+   do 
+	var=$(file $i | grep "image data")
+	if [[ $var ]]
+	    then
+	    echo $i
+	fi
+   done
+   
+4. #!/bin/bash
+
+   cd $1
+   for i in *
+   do 
+	var=$(file $i | grep "image data")
+	if [[ $var ]]
+	    then
+	    echo $i
+	fi
+   done
+
+5.
+
+EXERCICE 10
+
+1. 

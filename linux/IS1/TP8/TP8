@@ -1,0 +1,111 @@
+Document réponse TP8
+
+Charly Martin Avila
+
+EXERCICE 1
+
+1. head -n 1 ratp.csv
+   head -n 10 ratp.csv
+
+2. a) grep MAIRIE ratp.csv
+      grep -c MAIRIE ratp.csv
+      
+   b) grep Paris ratp.csv
+   
+   c) grep Paris -v ratp.csv
+   
+   d) grep PORTE ratp.csv | grep Paris
+   
+   e) grep "Paris;12" ratp.csv
+   
+   f) grep ";12;" ratp.csv
+   
+   g) grep Sceaux ratp.csv
+   
+   h) grep ";M" ratp.csv | grep -v ";M"[a-z]
+   
+
+EXERCICE 2
+
+1. ps ax | grep "/usr/sbin"
+
+2. ps ax | grep -v "/usr/bin"
+
+3. grep -r .txt
+
+4. ls -R ~/Cours | grep /.
+
+5. ls -R | grep -v /. | grep -v "^$" | grep '\(.pdf\|.java\|.zip\|.class\|.txt\)' | wc -l
+
+6. ls -R ~/Cours | grep /.
+
+7. a) ls -lR | grep "déc.  23"
+
+   b) ls -lR | grep [1-2][0-9]:[0-5][0-9]
+   
+   c) ls -l -R | grep [1-2][0-9]:[0-5][0-9] | grep ^d
+
+
+EXERCICE 3
+
+1. a) cut -d";" -f9 ratp.csv
+
+   b) cut -d";" -f9 ratp.csv | sort -n
+   
+   c) cut -d";" -f9 ratp.csv | sort -n | uniq | tr '[a-z]' '[A-Z]'
+   
+   d) cut -d";" -f9 ratp.csv | sort -n | uniq -c | tr '[a-z]' '[A-Z]' | sort -nr
+   
+   e) cut -d";" -f9,10 ratp.csv | sort -n | uniq -c | tr '[a-z]' '[A-Z]' | sort -nr
+   
+
+EXERCICE 4
+   
+1. grep "Métro" ratp.csv | grep ";[A-E];"
+
+2. grep "Métro" ratp.csv | grep -v ";;;;" | cut -d";" -f2
+   
+3.  
+   
+4. grep ";7;" ratp.csv | grep Paris | cut -d";" -f10 | sort -nr | uniq -c | sort -nr
+      c'est le 13
+   
+5. grep "13$" ratp.csv | cut -d";" -f4-8 | sort -n | uniq | tr ';' '\n' | sort -n | uniq
+
+
+EXERCICE 5
+
+1. a) find ~/ -name '*.java*' -print
+
+   b) find ~/ -name '??????.java*' -print
+   
+   c) find ~/ -name "*.*.java" -print
+   
+   d) find ~/ -name "*.*.*" -print
+   
+2. find ~/ -name "*~" -delete
+
+3. find ~/ -name '*.sh' -exec chmod g-x,o-x '{}' ';'
+
+4. mkdir Java | find ~/ -name '*.java' -exec mv '{}' '+' Java
+
+
+EXERCICE 6
+
+1. 
+
+2. find ~/ -type d
+
+3. find ~/ -type d -empty
+
+4. find ~/ -size +10 -print
+
+5. find ~/ -type d -links +5 -print
+
+6. find ~/ -links 3 -links 2 -exec ls -i '{}' ';'
+
+7. 
+
+8. find ~/ perm 700 -print
+
+9. find ~/ ! -user cmartinavila -exec ls -l '{}' ';'

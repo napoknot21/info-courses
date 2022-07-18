@@ -1,0 +1,183 @@
+TP 5 Document réponse
+Charly Martin Avila 
+
+EXERCICE 1
+
+1. 
+	Tous les processus y compris ceux qui ne sont pas rattachés à un terminal: ps ax
+	Tous les processus rattachés à un terminal: ps 
+	On les identifiants des processus (numero) et les noms des commandes
+
+2.
+UID : user Id.
+PPID :   parent process ID.
+PRI :  priority of the process.
+TT(Y) :  controlling tty 
+SZ : size in physical pages of the core image of the process.
+S(TAT) : multi-character process state.
+
+3. ps -uax
+
+4. ps -u [nom de l'utilisateur]
+
+5. ps -p 2924
+
+6. Systemd -> xfce4-terminal -> bash -> xclock
+
+
+
+EXERCICE 2
+
+1. kill -l
+   SIGTERM: 15
+   SIGKILL: 9
+   SIGINT: 2
+   SIGSTOP:19
+   SIGCONT: 18
+
+2. kill -SIGTERM : la calculatrice termine (processus completé)
+   kill -SIGKILL : processus arreté
+   kill -SIGINT : processus interrompu
+   kill -SIGSTOP : (il est arreté mais il ne termine pas)
+   kill -SIGCONT : aucun effet obtenu
+
+3. kill -SIGTERM : aucun effet obtenu
+   kill -SIGKILL : le terminal courant s'est fermé mais pas la calculatrice. (il termine le procesus).	
+   kill -SIGINT : aucun effet obtenu
+   kill --SIGSTOP : aucun  effet obtenu
+   kill -SIGCONT : aucun effet obtenu
+
+4. bash -> xterm -> bash -> xcalc
+
+5. SIGTERM : ca termine le processus de xterm et calc
+   SIGTERM : le processus de exterm et calc sont arretés
+   SIGINT : cela termine les processus xterm et calc
+
+6. On ne peut pas kill certains processus comme ceux de root (opération non permise).
+
+7. xclock &
+   xclock &
+   xclock &
+   xclock &
+   killall xclock
+   
+EXERCICE 3
+
+1. On voit que le processus xclock est aussi terminé
+
+2. on voit en effet que le processus ne se termine pas
+
+3. le PPID avant de la fermeture est celui du bash ou on y est, après la fermeture du bash, son PPID est celui de systemd.
+
+
+EXERCICE 4
+
+1. en cours d'execution donc en foreground
+
+2. Etat suspendu
+
+3. SIGSTOP
+
+4. kill -SIGCONT 5487
+
+
+
+EXERCICE 5
+
+1. ps affiche tous les processus et jobs affiche les processus en execution
+
+2. jobs -l
+
+
+EXERCICE 6
+
+1. Just un seul processus en avant-plan
+
+2. kill -18 [PID]
+
+3. kill -SIGINT [PID]
+
+
+EXERCICE 7
+
+1. le '>' redirige le contenu de la sortie standard
+
+2. le '>>' fait une concatenation du contenu des sorties standard.
+
+
+EXERCICE 8
+
+1. crw--w---- 1 cmartinavila tty  136, 0 déc.  15 15:04 0
+   c'est un caractère.
+
+2. il affiche le contenu de la commende date dans le terminal
+
+
+EXERCICE 9	
+
+1. Le fichier bugabu semble être vide.
+
+2. le fichier bugabu possède le message d'erreur de la commande man cal et de plus, il a concatené le message déerreur 
+
+3. Au moment d'executer la commande "meuzobuga", le message d'errreur été redirigé vers le fichier , donc il s'est pas produit d'erreur apparament.
+
+
+EXERCICE 10
+
+1. cat */*
+   cat */* 2> /dev/null
+
+2.ls -R LesCowboysFringants/ > /dev/null 2> erreurs.txt 
+
+
+EXERCICE 11
+
+Les deux commandes (dans les deux syntaxes) fonctionnent de même manière.
+
+
+EXERCICE 12
+
+On remarque que le fichhier Pantomime vient dd'être crée et son contenu est le meme que celui de Baptiste.
+tee Lemaitre Acteur Jeune < Frederic
+
+
+EXERCICE 13
+
+cat DevinPlombier MarinShadok  ProfesseurShadoko > gagabubu.txt
+cat DevinPlombier MarinShadok  ProfesseurShadoko 2> bubugaga.txt
+
+
+EXERCICE 14
+
+1.
+
+2. Lorsqu'on appui su ctrl-D , le message se répète sans aller à la ligne
+   On a terminé le procesuss propement
+
+3. L'option -n affiche les lignes du contenu
+
+4. l'option -s suprime les lignes vides du contenu du fichier
+   tee Criminel < Lacenaire 
+   cat -ns Criminel
+
+EXERCICE 15
+
+1. head Criminel
+   tail Criminel
+   hea -6 Criminel 
+
+2. Les 3 dernierès lignes sont copiés et ajoués grace à la option -n 3
+
+3. A difference de al commande tail, head répete 3 fois la ligne qui est en train de s'écrire.
+
+4. Avec head: l'option affiche que les n  premiers letres de la lignes (si on depasse les n caracteres, on nous affiche une erreur)
+   Avec tail: l'option affiche les n < (donc les n-1 dernierès lettres) à la fin du contennu
+
+5. La commande affiche le contenu de Criminel à partir de la ligne 2
+
+6. On remarque que les contennus sont affichés
+   head -q Garance Baptiste
+
+7. head -10q BraveMargot BancsPublics Fernande Hecatombe LaMauvaiseReputation LeParapluie LesCopainsDAbord LesSabotsDHelene > LeGorille
+   tail -6q BraveMargot BancsPuics Fernande Hecatombe LaMauvaiseReputation LeParapluie LesCopainsDAbord LesSabotsDHelene > LePassant
+   
