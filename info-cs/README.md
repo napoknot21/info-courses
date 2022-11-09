@@ -1,4 +1,4 @@
-# Informatic Courses and Resources
+# Informatic & Computer Sciences courses and resources
 
 Courses from/of :
 
