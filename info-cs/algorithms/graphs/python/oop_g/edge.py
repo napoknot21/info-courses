@@ -2,11 +2,15 @@
 
 class Edge :
 
-    def __init__ (self, node_u, node_v, mark) :
+    def __init__ (self, node_u, node_v, weight, mark) :
         self.node_u = node_u
         self.node_v = node_v
-        self.mark = False
+        self.weight = weight
+        self.mark = mark
 
+    def __init__ (self, node_u, node_v) :
+        self.__init__(node_u, node_v,0,False)
+    
     def getNode_u (self) :
         return self.node_u
 

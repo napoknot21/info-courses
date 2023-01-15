@@ -1,12 +1,16 @@
 public class Graph {
+
+    public Edge[] edges;
+    public Vertex[] vertex;
       
-    public static void main (String[] args) {
-        int a = 0;
-        while (a != 1) {
-            
-        }
+    public Graph (vertex, edges) {
+        this.vertex = vertex;
+        this.edges = edges;
     }
 
 
+    public void bfs () {
+
+    }
 
 }
