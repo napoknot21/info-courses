@@ -1,22 +1,27 @@
 # Informatic & Computer Sciences courses and resources
 
-## Courses :
+## Content :
 
-1. **AI** : Pdfs and resources form François Chollet, Jürgen Schmidhuber, MIT, etc.
+1. **Artificial Intelligence** (AI): Pdf books and resources form François Chollet, Jürgen Schmidhuber, MIT, etc.
 
-2. **algorithms** : Some implementations for graphs and trees.
+2. **Algorithms** : Some implementations for graphs, structures, etc in differents prog. languages.
 
-3. **binary-machines** : Binary code theorie, automates and exercices,  
+3. **Binary machines** : Binary code theorie, automates and exercices,  
 
-4. **Hacking/Crypto** : Network protocols, cryptographie courses, and different attacks.
+4. **Hacking/Cryptography** (Hacking/crypto) : Network protocols, cryptography courses, manuals and different attacks.
 
-5. **GNU-linux** : Manuals and differents pfds for learning linux OS, compilers, etc.
+5. **GNU-linux** : Manuals, pfds and books for learning linux OS, compilers, etc.
 
-4. **Mastermind** : Videos from the Spanish website [mastermind](www.mastermind.ac) for android dev, OSs, etc.
+4. **Mastermind** : Videos from the Spanish website [mastermind](www.mastermind.ac) for android dev, OSs, hacking, etc.
 
-5. **prg-languages**: Manuals and resources for learning synthaxe of python, java, ocaml, js, etc.
+5. **Programming Languages** (prg-lang): Manuals and resources for learning synthaxe of python, java, ocaml, js, etc.
 
-6. **web-dev** : Web dev with many website and exemples projects.
+6. **web development** (web-dev): Web dev with many website and exemples projects.
+
+7. **Data Science** (data-science): Courses and books for data science and data base
+
+8. **Network Programming** (net-prg): Protocols RFC and linux network programing pdfs
+
 
 ## Note
 The most part of courses/resources are in english. However there's lots of other ones that are in French, Spanish, etc... 
