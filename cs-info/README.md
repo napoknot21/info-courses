@@ -32,5 +32,7 @@ XX_NAME_RESOURCE.ext
 ```
 > Where : 
 > > ```XX``` := The current language (ex. FR for french, ESP for spanish, etc)
+> > 
 > > ```NAME_RESOURCE``` := The resource name. It will be written in its language.
+> > 
 > > ```ext``` := The extension resource (ex. pdf) 
