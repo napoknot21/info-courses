@@ -6,4 +6,4 @@ Most courses and resources are in french because they come from [Université Par
 
 Don't forget to star this repo :)
 
-* \* In singular, beaause there's only one mathématic as Cédric Villani, french Field Medal winner says *
+> \* In singular, because there's only one mathématic as Cédric Villani, french Field Medal winner says in his book [Les Mathématiquez sont la poésie des Sciences](https://www.amazon.com/math%C3%A9matiques-sont-po%C3%A9sie-sciences-math%C3%A9matique/dp/2081422417)*
